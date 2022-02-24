@@ -1,0 +1,49 @@
+body {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+#tabela-lista {
+  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tabela-lista td,
+#tabela-lista th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tabela-lista tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#tabela-lista tr:hover {
+  background-color: #b382ba;
+}
+
+#tabela-lista th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #7e459b;
+  color: white;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #7e459b;
+  color: white;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
