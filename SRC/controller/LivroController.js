@@ -6,13 +6,13 @@ const livros= require('../model/LivroModel.js')
 
 
 const getAll=(req,res)=>{
-    console.log(req.url)
-    livros.find(function(err,livros){
-      if(err) { 
-        res.status(500).send({ message: err.message })
-      }
-      res.status(200).send(livros)
-    })
+  console.log(req.url)
+  livros.find(function(err,livros){
+    if(err) { 
+      res.status(500).send({ message: err.message })
+    }
+    res.status(200).send(livros)
+  })
 };
 
 

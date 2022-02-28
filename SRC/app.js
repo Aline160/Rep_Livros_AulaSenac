@@ -1,16 +1,19 @@
-require('dotenv').config();
+const ejs = require('ejs');
 
 const express=require('express');
 const app = express();
 
 const livros = require('./routes/LivroRoutes')
 const index = require('./routes/index')
-const connect=require('./database')
+const connect=require('./database');
+const livrosMongo = require('./model/LivroModel');
 
 connect(); 
 
 //app.use(bodyParser.json()); Podemos usar a propria função de parser de json do express, sem a necessidade de instalar o body parser 
 app.use(express.json());
+
+app.set('view engine', 'ejs');
 
 
 
@@ -29,9 +32,17 @@ app.use("/", index)
 app.use('/livros',livros);
 
 
-app.get('/livros', (req, res) => {
-    res.status(200).sendFile('./views/index.html', { root: __dirname })
+
+
+app.get('/livros/livros',(req,res)=>{
+  livrosMongo.find({},function(err,livro){
+    res.render('index',{
+      livrosList:livro
+    })
+  })
 })
+
+
 
 app.get('*',(req,res)=>{
     res.status(404).sendFile('./views/erro.html',{root:__dirname})

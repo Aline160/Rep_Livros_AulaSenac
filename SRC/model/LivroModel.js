@@ -15,6 +15,6 @@ const LivroSchema = new mongoose.Schema({
     versionKey: false
 });
 
-const livros = mongoose.model('livros', LivroSchema);
+const livrosMongo = mongoose.model('livros', LivroSchema);
 
-module.exports = livros;
+module.exports = livrosMongo;
