@@ -2,10 +2,10 @@
 //const app = express();
 
 const app = require('./SRC/app')
-const port = 3000;
+const port = process.env.PORT;
 
 
 
 app.listen(port, () => {
-    console.log(`Listening on port ${port}!`)
+    console.log(`Listening on port s!`)
 });

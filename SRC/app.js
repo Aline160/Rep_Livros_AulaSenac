@@ -31,21 +31,16 @@ app.use(function (req, res, next) {
 app.use("/", index)
 app.use('/livros',livros);
 
-
-
-
-app.get('/livros/livros',(req,res)=>{
-  livrosMongo.find({},function(err,livro){
-    res.render('index',{
-      livrosList:livro
-    })
-  })
+app.get('/Home',(req,res)=>{
+  res.status(200).sendFile('./paginas/index.html',{root:__dirname})
 })
 
-
+app.get('/contato',(req,res)=>{
+  res.status(200).sendFile('./paginas/contato.html',{root:__dirname})
+})
 
 app.get('*',(req,res)=>{
-    res.status(404).sendFile('./views/erro.html',{root:__dirname})
+    res.status(404).sendFile('../erro.html',{root:__dirname})
 })
 
 

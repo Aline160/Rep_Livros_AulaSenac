@@ -1,19 +1,22 @@
 const res = require("express/lib/response");
 const fs = require("fs");
-const{v4:uuid}=require("uuid")
+const{v4:uuid}=require("uuid");
+const livrosMongo = require("../model/LivroModel.js");
 
 const livros= require('../model/LivroModel.js')
 
 
 const getAll=(req,res)=>{
-  console.log(req.url)
-  livros.find(function(err,livros){
+  livrosMongo.find({},function(err,livro){
     if(err) { 
       res.status(500).send({ message: err.message })
     }
-    res.status(200).send(livros)
+    res.status(200).render('index',{
+      livrosList:livro
+    })
   })
 };
+
 
 
 const getLivroByID = (req, res) => {
