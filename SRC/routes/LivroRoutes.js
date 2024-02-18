@@ -4,7 +4,7 @@ const controller = require('../controller/LivroController');
 
 route.get('/',controller.getAll);
 route.get('/livros/:id',controller.getLivroByID);
-route.get('/livros/:titulo', controller.getByTitulo);
+route.get('/livros/titulo/:titulo', controller.getByTitulo);
 route.post('/',controller.postLivros);
 route.delete("/:id", controller.deleteLivros);
 route.delete("/", controller.deleteLivroAntigo);
